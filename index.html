@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Macondo&family=Montserrat:wght@400;700&family=Poppins:wght@200&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/c89d342c1a.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>Vanilla Weather-App</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="today">
+                            <span id="weekDay">day</span>, <span id="currentTime">time</span>
+                            </br>
+                            <span id="currentDate">date</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <form class="typeCity" id="formaCity">
+                            <input class="form-control form-control-sm" type="search" id="city-input"
+                                placeholder="Type a city and press Enter" autofocus="on" autocomplete="off" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card" id="centeralCard">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h1 class="searchCity"><span id="searchCity">city</span>,
+                                    <span id="cityCountry"></span>
+                                </h1>
+                                <h3 class="description" id="description">
+                                    weather
+                                </h3>
+                                <div>
+                                    <ul class="todayAnother">
+                                        <li>Humidity: <span id="currentHumidity">0</span>%</li>
+                                        <li>Wind: <span id="currentWind">0</span> km/h</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <img src=" " alt=" " id="icon" />
+                                <!-- <i class="fa-solid fa-cloud-sun icon-cloudy"></i> -->
+                                <div class="temperature-units">
+                                    <span class="temperature" id="temperature">t</span>
+                                    <span class="units"><a href="#" id="celsius-link" class="active">°C</a>
+                                        |
+                                        <a href="#" id="fahrenheit-link">°F</a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body" id="aphorism">
+                        <h2 class="aphorism">Bad weather always looks worse through a window.</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <p class="week">Mon</p>
+                        <span class="nextdays">
+                            <i class="fa-solid fa-cloud-sun icon2-cloudy"></i>
+                            <br />+16</span>
+                    </div>
+                    <div class="col">
+                        <p class="week">Tuh</p>
+                        <span class="nextdays">
+                            <i class="fa-solid fa-cloud-sun icon2-cloudy"></i>
+                            <br />+18</span>
+                    </div>
+                    <div class="col">
+                        <p class="week">Wen</p>
+                        <span class="nextdays">
+                            <i class="fa-solid fa-cloud-sun icon2-cloudy"></i>
+                            <br />+20</span>
+                    </div>
+                    <div class="col">
+                        <p class="week">Thu</p>
+                        <span class="nextdays">
+                            <i class="fa-solid fa-cloud-sun icon2-cloudy"></i>
+                            <br />+18</span>
+                    </div>
+                    <div class="col">
+                        <p class="week">Fr</p>
+                        <span class="nextdays">
+                            <i class="fa-solid fa-cloud-sun icon2-cloudy"></i>
+                            <br />+19</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <p class="footer">
+                ©️ This project was coded by
+                <a href="https://www.linkedin.com/in/svitlana-rudyeva-19156a181/" target="_blank">
+                    Svitlana Rudyeva</a>
+                for
+                <a href="https://www.shecodes.io/" target="_blank">
+                    SheCodes</a>
+                | Open-sourced code is on
+                <a href="https://github.com/Switlo/my-first-App-Weather" target="_blank">
+                    GitHub</a>
+            </p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
