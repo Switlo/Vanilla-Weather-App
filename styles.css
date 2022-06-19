@@ -105,12 +105,13 @@ body {
   border: none;
 }
 .week {
-  text-align: center;
   font-size: 15px;
   font-weight: 600;
   color: #636262;
   padding: 0;
   margin: 0;
+  position: relative;
+  right: -25px;
 }
 .nextdays {
   display: block;
