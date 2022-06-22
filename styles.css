@@ -76,7 +76,7 @@ body {
 }
 
 .temperature-units .active:hover {
-  text-decoration: none;  
+  text-decoration: none;
 }
 
 .units {
@@ -104,7 +104,13 @@ body {
   background-color: transparent;
   border: none;
 }
-.week {
+.temperature-min,
+.temperature-max {
+  font-size: 18px;
+  font-weight: 600;
+  color: #636262;
+}
+.week-day {
   font-size: 15px;
   font-weight: 600;
   color: #636262;

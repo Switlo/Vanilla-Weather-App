@@ -28,12 +28,35 @@ let months = [
   "November",
   "Desember",
 ];
-let month = months[now.getMonth()];
+let currentMonth = now.getMonth();
+let month = months[currentMonth];
 let date = now.getDate();
 let year = now.getFullYear();
-
 let currentDate = document.querySelector("#currentDate");
+let seasonBackground = document.querySelector("#container");
+let nextDaysBackground = document.querySelector("#nextdays");
+changeBackground();
+
 currentDate.innerHTML = `${month} ${date}, ${year}`;
+
+function changeBackground() {
+  if (currentMonth === 11 || currentMonth === 0 || currentMonth === 1) {
+    seasonBackground.style.background = `linear-gradient(#e1f2fb, #f7f7f7)`;
+    nextDaysBackground.style.background = `linear-gradient(#e1f2fb, #f7f7f7)`;
+  }
+  if (currentMonth === 2 || currentMonth === 3 || currentMonth === 4) {
+    seasonBackground.style.background = `linear-gradient(#4ef037, #f7f7f7)`;
+    nextDaysBackground.style.background = `linear-gradient(#4ef037, #f7f7f7)`;
+  }
+  if (currentMonth === 5 || currentMonth === 6 || currentMonth === 7) {
+    seasonBackground.style.background = `linear-gradient(#fcff82, #f7f7f7)`;
+    nextDaysBackground.style.background = `linear-gradient(#fcff82, #f7f7f7)`;
+  }
+  if (currentMonth === 8 || currentMonth === 9 || currentMonth === 10) {
+    seasonBackground.style.background = `linear-gradient(#ffc93c, #f7f7f7)`;
+    nextDaysBackground.style.background = `linear-gradient(#ffc93c, #f7f7f7)`;
+  }
+}
 
 let hour = now.getHours();
 if (hour < 10) {
