@@ -34,7 +34,7 @@ let date = now.getDate();
 let year = now.getFullYear();
 let currentDate = document.querySelector("#currentDate");
 let seasonBackground = document.querySelector("#container");
-let nextDaysBackground = document.querySelector("#nextdays");
+// let nextDaysBackground = document.querySelector("#nextdays");
 changeBackground();
 
 currentDate.innerHTML = `${month} ${date}, ${year}`;
@@ -42,19 +42,19 @@ currentDate.innerHTML = `${month} ${date}, ${year}`;
 function changeBackground() {
   if (currentMonth === 11 || currentMonth === 0 || currentMonth === 1) {
     seasonBackground.style.background = `linear-gradient(#e1f2fb, #f7f7f7)`;
-    nextDaysBackground.style.background = `linear-gradient(#e1f2fb, #f7f7f7)`;
+    // nextDaysBackground.style.background = `linear-gradient(#e1f2fb, #f7f7f7)`;
   }
   if (currentMonth === 2 || currentMonth === 3 || currentMonth === 4) {
     seasonBackground.style.background = `linear-gradient(#4ef037, #f7f7f7)`;
-    nextDaysBackground.style.background = `linear-gradient(#4ef037, #f7f7f7)`;
+    // nextDaysBackground.style.background = `linear-gradient(#4ef037, #f7f7f7)`;
   }
   if (currentMonth === 5 || currentMonth === 6 || currentMonth === 7) {
     seasonBackground.style.background = `linear-gradient(#fcff82, #f7f7f7)`;
-    nextDaysBackground.style.background = `linear-gradient(#fcff82, #f7f7f7)`;
+    // nextDaysBackground.style.background = `linear-gradient(#fcff82, #f7f7f7)`;
   }
   if (currentMonth === 8 || currentMonth === 9 || currentMonth === 10) {
     seasonBackground.style.background = `linear-gradient(#ffc93c, #f7f7f7)`;
-    nextDaysBackground.style.background = `linear-gradient(#ffc93c, #f7f7f7)`;
+    // nextDaysBackground.style.background = `linear-gradient(#ffc93c, #f7f7f7)`;
   }
 }
 
@@ -69,6 +69,31 @@ if (minute < 10) {
 
 let currentTime = document.querySelector("#currentTime");
 currentTime.innerHTML = `${hour}:${minute}`;
+
+function displayWeatherNextdays() {
+  let nextDaysElement = document.querySelector("#weather-nextdays");
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+  let nextDaysHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    nextDaysHTML = nextDaysHTML +
+      `
+                    <div class="col">
+                        <p class="week-day">${day}</p>
+                        <div class="nextdays" id="nextdays">
+                            <i class="fa-solid fa-cloud-sun icon2-cloudy"></i>
+                            <br />
+                            <span class="temperature-min">+16 ...</span>
+                            <span class="temperature-max">+18</span>
+                        </div>
+                    </div>
+                `;
+  });
+  nextDaysHTML = nextDaysHTML + `</div>`
+  nextDaysElement.innerHTML = nextDaysHTML;
+  console.log(nextDaysHTML);
+}
+
+displayWeatherNextdays();
 
 function currentWeather(response) {
   console.log(response.data);

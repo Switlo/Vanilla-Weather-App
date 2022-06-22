@@ -110,6 +110,11 @@ body {
   font-weight: 600;
   color: #636262;
 }
+
+.temperature-max {
+  color: #074d8f;
+}
+
 .week-day {
   font-size: 15px;
   font-weight: 600;
