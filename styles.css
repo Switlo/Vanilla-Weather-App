@@ -100,23 +100,36 @@ body {
   font-weight: 800;
   text-shadow: 2px 2px 3px rgba(135, 7, 145, 0.3);
   color: #e510f5;
-  margin-top: 10px;
+  margin-top: 5px;
   padding: 0;
+}
+#aphorism.card-body {
+  padding: 5px;
 }
 
 .card {
   background-color: transparent;
   border: none;
-}
-.temperature-min,
-.temperature-max {
-  font-size: 18px;
-  font-weight: 600;
-  color: #636262;
+  padding: 0;
 }
 
-.temperature-max {
-  color: #074d8f;
+#weather-nextdays.card-body {
+  padding-top: 0;
+  padding-right: 0;
+}
+.nextdays,
+#nextdays {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(#e1f2fb, #f7f7f7);
+  border-radius: 10px;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+  font-size: 20px;
+  font-weight: 600;
+  color: #636262;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 .week-day {
@@ -128,27 +141,17 @@ body {
   position: relative;
   right: -25px;
 }
-.nextdays,
-#nextdays {
-  display: block;
-  width: 100px;
-  height: 100px;
-  border: 1px solid #074d8f;
-  background: linear-gradient(#e1f2fb, #f7f7f7);
-  border-radius: 10px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-  font-size: 20px;
+.temperature-min,
+.temperature-max {
+  font-size: 18px;
   font-weight: 600;
   color: #636262;
-  text-align: center;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
-.icon2-cloudy {
-  text-align: center;
+.temperature-max {
   color: #074d8f;
-  font-size: 30px;
-  padding: 10px;
-  margin: 10px;
 }
 .footer {
   text-align: center;

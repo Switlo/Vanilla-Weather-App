@@ -40,7 +40,7 @@ currentDate.innerHTML = `${month} ${date}, ${year}`;
 
 function changeBackground() {
   if (currentMonth === 11 || currentMonth === 0 || currentMonth === 1) {
-    seasonBackground.style.background = `linear-gradient(#e1f2fb, #f7f7f7)`;
+    seasonBackground.style.background = `linear-gradient(#64c4ed, #f7f7f7)`;
     // nextDaysBackground.style.background = `linear-gradient(#e1f2fb, #f7f7f7)`;
   }
   if (currentMonth === 2 || currentMonth === 3 || currentMonth === 4) {
@@ -48,7 +48,7 @@ function changeBackground() {
     // nextDaysBackground.style.background = `linear-gradient(#4ef037, #f7f7f7)`;
   }
   if (currentMonth === 5 || currentMonth === 6 || currentMonth === 7) {
-    seasonBackground.style.background = `linear-gradient(#fcff82, #f7f7f7)`;
+    seasonBackground.style.background = `linear-gradient(#ffe700, #f7f7f7)`;
     // nextDaysBackground.style.background = `linear-gradient(#fcff82, #f7f7f7)`;
   }
   if (currentMonth === 8 || currentMonth === 9 || currentMonth === 10) {
@@ -89,27 +89,26 @@ function displayWeatherNextdays(response) {
     if (index < 5) {
       nextDaysHTML =
         nextDaysHTML +
-        `
-                    <div class="col">
-                        <p class="week-day">${weekDays(forecastDay.dt)}</p>
-                        <div class="nextdays" id="nextdays">
-                            <img
+        `<div class="col"><p class="week-day">${weekDays(
+          forecastDay.dt
+        )}</p><div class="nextdays" id="nextdays">
+          <img
           src="http://openweathermap.org/img/wn/${
             forecastDay.weather[0].icon
           }@2x.png"
           alt=""
-          width="42"
+          width="55"
         />
-                            <br />
-                            <span class="temperature-min">${Math.round(
-                              forecastDay.temp.min
-                            )}° ...</span>
-                            <span class="temperature-max">${Math.round(
-                              forecastDay.temp.max
-                            )}°</span>
-                        </div>
-                    </div>
-                `;
+        <br />
+        <span class="temperature-min">${Math.round(
+          forecastDay.temp.min
+        )}° ... </span>
+        <span class="temperature-max">${Math.round(
+          forecastDay.temp.max
+        )}°</span>
+        </div>
+      </div>
+      `;
     }
   });
   nextDaysHTML = nextDaysHTML + `</div>`;
@@ -146,7 +145,7 @@ function currentWeather(response) {
   countryElement.innerHTML = response.data.sys.country;
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png` 
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].main);
   getNextDays(response.data.coord);
