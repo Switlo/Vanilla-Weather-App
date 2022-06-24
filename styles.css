@@ -124,7 +124,7 @@ body {
   position: relative;
   right: -25px;
 }
-.nextdays {
+.nextdays, #nextdays {
   display: block;
   width: 100px;
   height: 100px;

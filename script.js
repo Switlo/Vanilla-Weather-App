@@ -9,7 +9,6 @@ let days = [
   "Thursday",
   "Friday",
   "Saturday",
-  "Sunday",
 ];
 let weekDay = document.querySelector("#weekDay");
 weekDay.innerHTML = days[now.getDay()];
@@ -70,33 +69,55 @@ if (minute < 10) {
 let currentTime = document.querySelector("#currentTime");
 currentTime.innerHTML = `${hour}:${minute}`;
 
-function displayWeatherNextdays() {
+function weekDays(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  if (day < 6) {
+    return days[day + 1];
+  } else {return "Sun"; }
+ 
+}
+
+function displayWeatherNextdays(response) {
+  let forecast = response.data.daily;
   let nextDaysElement = document.querySelector("#weather-nextdays");
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+
   let nextDaysHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    nextDaysHTML = nextDaysHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      nextDaysHTML =
+        nextDaysHTML +
+        `
                     <div class="col">
-                        <p class="week-day">${day}</p>
+                        <p class="week-day">${weekDays(forecastDay.dt)}</p>
                         <div class="nextdays" id="nextdays">
                             <i class="fa-solid fa-cloud-sun icon2-cloudy"></i>
                             <br />
-                            <span class="temperature-min">+16 ...</span>
-                            <span class="temperature-max">+18</span>
+                            <span class="temperature-min">${Math.round(
+                              forecastDay.temp.min
+                            )}° ...</span>
+                            <span class="temperature-max">${Math.round(
+                              forecastDay.temp.max
+                            )}°</span>
                         </div>
                     </div>
                 `;
+    }
   });
-  nextDaysHTML = nextDaysHTML + `</div>`
+  nextDaysHTML = nextDaysHTML + `</div>`;
   nextDaysElement.innerHTML = nextDaysHTML;
-  console.log(nextDaysHTML);
 }
 
-displayWeatherNextdays();
+function getNextDays(coordinates) {
+  console.log(coordinates);
+  let apiKey = "0bbb2981f03e6b3d1d7194b9db724d7c";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayWeatherNextdays);
+}
 
 function currentWeather(response) {
-  console.log(response.data);
   let iconElement = document.querySelector("#icon");
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#searchCity");
@@ -120,6 +141,7 @@ function currentWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].main);
+  getNextDays(response.data.coord);
 }
 
 function showFahrenheit(event) {
@@ -162,14 +184,15 @@ function handleSubmit(event) {
 let formaCity = document.querySelector("#formaCity");
 formaCity.addEventListener("submit", handleSubmit);
 
-function showLocation(position) {
-  let apiKey = "0bbb2981f03e6b3d1d7194b9db724d7c";
-  let unit = "metric";
-  //  let units = "imperial";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${unit}`;
-  axios.get(apiUrl).then(currentWeather);
-}
-searchCity(navigator.geolocation.getCurrentPosition(showLocation));
+// function showLocation(position) {
+//   let apiKey = "0bbb2981f03e6b3d1d7194b9db724d7c";
+//   let unit = "metric";
+//   //  let units = "imperial";
+//   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${unit}`;
+//    axios.get(apiUrl).then(currentWeather);
+// }
+// searchCity(navigator.geolocation.getCurrentPosition(showLocation));
+searchCity("Kyiv");
 
 let quotes = [
   `The weather is perfect. The gods are shining on us.`,
