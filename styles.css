@@ -22,6 +22,10 @@ body {
   font-size: 15px;
   color: #383838;
   margin-top: -8px;
+  margin-bottom: 10px;
+}
+#formaCity {
+  min-width: 300px;
 }
 
 #centeralCard {
@@ -124,7 +128,8 @@ body {
   position: relative;
   right: -25px;
 }
-.nextdays, #nextdays {
+.nextdays,
+#nextdays {
   display: block;
   width: 100px;
   height: 100px;

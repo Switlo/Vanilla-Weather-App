@@ -75,8 +75,9 @@ function weekDays(timestamp) {
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   if (day < 6) {
     return days[day + 1];
-  } else {return "Sun"; }
- 
+  } else {
+    return "Sun";
+  }
 }
 
 function displayWeatherNextdays(response) {
@@ -92,7 +93,13 @@ function displayWeatherNextdays(response) {
                     <div class="col">
                         <p class="week-day">${weekDays(forecastDay.dt)}</p>
                         <div class="nextdays" id="nextdays">
-                            <i class="fa-solid fa-cloud-sun icon2-cloudy"></i>
+                            <img
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
+          alt=""
+          width="42"
+        />
                             <br />
                             <span class="temperature-min">${Math.round(
                               forecastDay.temp.min
@@ -118,6 +125,7 @@ function getNextDays(coordinates) {
 }
 
 function currentWeather(response) {
+  console.log(response.data);
   let iconElement = document.querySelector("#icon");
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#searchCity");
@@ -138,7 +146,7 @@ function currentWeather(response) {
   countryElement.innerHTML = response.data.sys.country;
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png` 
   );
   iconElement.setAttribute("alt", response.data.weather[0].main);
   getNextDays(response.data.coord);
