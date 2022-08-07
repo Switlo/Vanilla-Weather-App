@@ -176,7 +176,7 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsius);
 
 function searchCity(city) {
-  let apiKey = "0961c81b1f2ef4eeae1c215b2ba88c0df";
+  let apiKey = "961c81b1f2ef4eeae1c215b2ba88c0df";
   let units = "metric";
   //  let units = "imperial";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
