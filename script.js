@@ -117,7 +117,7 @@ function displayWeatherNextdays(response) {
 
 function getNextDays(coordinates) {
   console.log(coordinates);
-  let apiKey = "0bbb2981f03e6b3d1d7194b9db724d7c";
+  let apiKey = "961c81b1f2ef4eeae1c215b2ba88c0df";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayWeatherNextdays);
@@ -176,7 +176,7 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsius);
 
 function searchCity(city) {
-  let apiKey = "0bbb2981f03e6b3d1d7194b9db724d7c";
+  let apiKey = "0961c81b1f2ef4eeae1c215b2ba88c0df";
   let units = "metric";
   //  let units = "imperial";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
@@ -192,7 +192,7 @@ let formaCity = document.querySelector("#formaCity");
 formaCity.addEventListener("submit", handleSubmit);
 
 // function showLocation(position) {
-//   let apiKey = "0bbb2981f03e6b3d1d7194b9db724d7c";
+//   let apiKey = "961c81b1f2ef4eeae1c215b2ba88c0df";
 //   let unit = "metric";
 //   //  let units = "imperial";
 //   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${unit}`;
